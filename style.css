@@ -44,6 +44,22 @@ div.card {
     
 }
 
+div.card2 {
+    width: 100%;
+    font-size: 1.25em;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    box-shadow: 0px -5px 50px rgb(0,0,0,0.10);
+    color: #000000;
+    border-width: 2em;
+    border-color: #222222;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    background-color: #222222;
+}
+
+
 div.logo{
     /* width: 50%; */
     float: left;
@@ -150,7 +166,22 @@ img.tradebutton {
         text-align: center;
         
         }
-    
+        div.card2 {
+            width: 100%;
+            font-size: 1.25em;
+            position: absolute;
+            bottom: 0px;
+            text-align: center;
+            box-shadow: 0px -5px 50px rgb(0,0,0,0.10);
+            color: #000000;
+            border-width: 2em;
+            border-color: #ffffff;
+            border-top-style: solid;
+            border-bottom-style: solid;
+            background-color: #ffffff;
+        }
+
+
     div.heart {
         color:#000000
     }
@@ -196,6 +227,21 @@ img.tradebutton {
         transform: translate(-50%, -50%);
     }
     
+    div.card2 {
+        width: 100%;
+        font-size: 1.5em;
+        position: absolute;
+        bottom: 0px;
+        text-align: center;
+        box-shadow: 0px -5px 50px rgb(0,0,0,0.10);
+        color: #000000;
+        border-width: 2em;
+        /* border-color: #ffffff; */
+        border-top-style: solid;
+        border-bottom-style: solid;
+        /* background-color: #ffffff; */
+    }
+
     p {
         margin: 0;
         margin-top: 4em;
