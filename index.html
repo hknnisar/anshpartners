@@ -2,41 +2,337 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="./images/icon.png" type="image/icon type">
-	<link rel="stylesheet" href="style.css">
-    <title>Ansh Partners</title>
-    <meta name="description" content="Ansh Partners are proud incubators of TradeButton">
-    <meta property="og:title" content="Ansh Partners" />
-    <meta property="og:image" content="https://harshnisar.com/anshpartners/images/ogimage.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ansh Partners | Strategic Capital Allocation</title>
+    
+    <!-- Google Fonts: EB Garamond (Serif) and Jost (Sans-Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
+    <style>
+        /* 
+         * Default Theme (Light / Print Memo) 
+         */
+        :root {
+            --bg-color: #FAFAFA;
+            --text-color: #1A1A1A;
+            --accent-color: #D97736;
+            --divider-color: #E0E0E0;
+            --muted-color: #666666;
+            --font-heading: 'EB Garamond', serif;
+            --font-body: 'Jost', sans-serif;
+        }
+
+        /* 
+         * Automatic Dark Theme (Terminal / Quantitative) 
+         * Activates when the user's OS is set to Dark Mode
+         */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --text-color: #F0F0F0;
+                --divider-color: #2A2A2A;
+                --muted-color: #999999;
+                /* Note: --accent-color remains the same so your brand color persists */
+            }
+            
+            /* Slightly dim the logo to prevent glare on dark backgrounds */
+            .logo-img {
+                opacity: 0.9;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Top Border Accent */
+        body::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 4px;
+            background-color: var(--accent-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-img {
+            height: 48px;
+            width: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin-left: 2rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-top: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Tagline Typography */
+        .tagline-container {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .sanskrit-tagline {
+            font-size: 1.55rem;
+            color: var(--accent-color);
+            margin-bottom: 0.25rem;
+            font-family: system-ui, -apple-system, sans-serif; 
+            font-weight: 500;
+        }
+
+        .translation-tagline {
+            font-size: 0.95rem;
+            font-style: italic;
+            font-family: var(--font-heading);
+            color: var(--muted-color);
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+        }
+
+        /* Sections & Editorial Dividers */
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--divider-color);
+            transition: border-color 0.3s ease;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        /* Partners Bios */
+        .partner {
+            margin-bottom: 2.5rem;
+        }
+
+        .partner h3 {
+            display: inline-block;
+        }
+
+        .partner span.role {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted-color);
+            margin-left: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        /* Insights / Memos */
+        ul.memos {
+            list-style: none;
+        }
+
+        ul.memos li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: baseline;
+        }
+
+        ul.memos strong {
+            font-weight: 500;
+            margin-right: 1rem;
+            min-width: 80px;
+        }
+
+        a.download-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.2s ease;
+        }
+
+        a.download-link:hover {
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--muted-color);
+            transition: color 0.3s ease;
+        }
+        
+        footer a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            nav { justify-content: center; }
+            .sanskrit-tagline { font-size: 1.5rem; }
+        }
+    </style>
 </head>
 <body>
-    <div class="card">
+
+    <nav>
+        <a href="#"><img src="./images/ansh_sq.png" alt="Ansh Partners Logo" class="logo-img"></a>
+        <div class="nav-links">
+            <a href="#philosophy">Philosophy</a>
+            <a href="#partners">Team</a>
+            <a href="#insights">Insights</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
         
-        <div class="logo">
-        <img class="ansh">
-        </div>
-        <div class="heart">
-            ❤
-        </div>
-        <div class="logo2">
-            <a href="https://tradebutton.co">
-            <img class="tradebutton">
-            </a>
+        <header>
+            <h1>Ansh Partners</h1>
+            <div class="tagline-container">
+                <p class="sanskrit-tagline">भारतस्य विजयो ध्रुवः</p>
+                <p class="translation-tagline">The success of India is certain.</p>
             </div>
-<!--         <div class="contact">
-            <p class="name">Kiran <b>Nisar</b></p>
-            <p class="name"><a href="https://harshnisar.com">Harsh <b>Nisar</b></a></p>
-            <p class="detail">📞<span class="tab"></span><a href="tel:+912240046699">022 4004 6699</a></p>
-            <p class="detail">📱<span class="tab"></span><a href="tel:+919969725005">996 972 5005</a></p>
-            <p class="detail">📧<span class="tab"></span><a href="mailto:realtorsnisar@gmail.com">realtorsnisar@gmail.com</a></p>
-            <p class="detail">🏢<span class="tab"></span><a href="https://www.google.com/maps/place/Nisar+Realtors/@19.0832138,72.83814,17z/data=!3m1!4b1!4m5!3m4!1s0x3be7c9ea65ad3187:0xc9540776228302de!8m2!3d19.0832217!4d72.8405513">22/5, Hi-Life Mall,</a></p>
-            <p class="address"><a href="https://www.google.com/maps/place/Nisar+Realtors/@19.0832138,72.83814,17z/data=!3m1!4b1!4m5!3m4!1s0x3be7c9ea65ad3187:0xc9540776228302de!8m2!3d19.0832217!4d72.8405513">PM Road,<br>Santacruz (W)<br> Mumbai 400 054</a></p>
-        </div>
- -->        
-        </div>
-    <div class="card2">
-        <a href="https://tradebutton.co">TradeButton is proudly incubated at Ansh Partners.</a>
+        </header>
+
+        <section id="philosophy">
+            <h2>Our Philosophy</h2>
+            <p><strong>Patience. Perspective. Growth.</strong></p>
+            <p>Ansh Partners approaches capital allocation as a quiet, enduring practice. We believe that true growth is rarely born from reacting to the noise of the moment, but rather from a foundation of absolute patience and studied perspective.</p>
+            <p>Our mandate is to nurture resources with the same deliberate care required to cultivate a deep-rooted ecosystem. By allowing time to do the heavy lifting and relying on accumulated wisdom rather than fleeting trends, we position our portfolio to weather economic cycles and compound steadily over the long term. For us, investment is not simply a mechanical exercise in finance, but a profound exercise in restraint, vision, and the quiet compounding of value.</p>
+        </section>
+
+        <section id="partners">
+            <h2>The Team</h2>
+
+            <div class="partner">
+                <h3>Heli Sangoi</h3><span class="role">Partner</span>
+                <p>Heli serves as the structural and strategic compass for the firm. As the senior-most member of the partnership, she brings an unparalleled depth of experience from the broader financial sector, anchored by an extensive, high-level network of technical and regulatory relationships. She provides rigorous governance, technical counsel, and overarching direction to the firm’s capital deployment. Her deep understanding of complex financial architecture ensures that the partnership's growth is consistently guided by prudence, precision, and enduring stability.</p>
+            </div>
+            
+            <div class="partner">
+                <h3>Kiran Nisar</h3><span class="role">Partner</span>
+                <p>Kiran anchors the firm’s private investments and strategic partnerships. He leads corporate structuring, the evaluation of complex joint ventures, and the operational oversight of foundational assets. His deep experience in long-term capital deployment and organizational framework design provides a robust, stable anchor to the firm's broader portfolio.</p>
+            </div>
+
+            <div class="partner">
+                <h3>Harsh Kiran Nisar</h3><span class="role">Partner</span>
+                <p>Harsh serves as the research and technical pillar of the partnership, directing the firm’s quantitative strategies and algorithmic architecture. Following several years of foundational operational experience across North American markets, he brings a rigorous, systems-engineering discipline to the firm's capital allocation. His expertise lies in constructing automated trading frameworks, macroeconomic cycle analysis, and applying machine learning models to finance. By treating asset allocation as an empirical science, he ensures that the firm’s quantitative modeling and dynamic asset strategies are consistently driven by precision and profound technical research.</p>
+            </div>
+
+            <div class="partner">
+                <h3>Niket Shah</h3><span class="role">Partner</span>
+                <p>Niket serves as the strategic fulcrum of the partnership, providing a vital qualitative counterbalance to the firm’s quantitative frameworks. As a second-generation market participant with lifelong immersion in the industry, his approach is informed by a deeply rooted institutional network and an intuitive grasp of market mechanics cultivated from an early age. His expertise lies in macro-level foresight—identifying structural shifts and emerging trends before they reach broad consensus. By bridging rigorous strategy with profound industry relationships, Niket ensures the firm’s capital allocation remains both agile and exceptionally resilient.</p>
+            </div>
+
+            <div class="partner">
+                <h3>Ansh Nisar</h3><span class="role">Partner</span>
+                <p>Ansh brings a forward-looking, dynamic perspective to the firm’s capital allocation frameworks. Representing the second generation of the firm's market participation, he provides a vital bridge between enduring investment principles and emerging macroeconomic trends. His technical acumen includes a sophisticated fluency in derivative structuring and synthetic instruments, allowing the partnership to manage risk and navigate complex market mechanics with exactness. Currently based in Barcelona to further his advanced academic pursuits, Ansh contributes a strategic, global vantage point to the office, ensuring the firm’s overarching philosophy remains adaptable and positioned for long-term continuity.</p>
+            </div>
+
+            <div class="partner">
+                <h3>Ayush Dedhia</h3><span class="role">Associate</span>
+                <p>Ayush directs the firm’s technological initiatives and artificial intelligence frameworks. With a formal background in computer engineering, he brings a rigorous, systems-based analytical approach to the evaluation of emerging technology assets. He spearheads the valuation and quantitative modeling of new-age tech investments, ensuring that the partnership's exposure to next-generation sectors is anchored in fundamental discipline and structural endurance rather than short-term market momentum.</p>
+            </div>
+        </section>
+
+		<section id="insights">
+            <h2>Insights</h2>
+            <p>Technical notes, firm reflections, and accessible explorations of market mechanics.</p>
+            <ul class="memos">
+                <li><strong>Q1 2627</strong> <a href="./2627q1.html" class="download-link">FDRE Power Economics</a></li>
+                <li><strong>Q4 2526</strong> <a href="./2526q4.html" class="download-link">Insoluble Sulphur Market Dynamics</a></li>
+            </ul>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>
+                Ansh Partners<br>
+                22-5 Hi Life, PM Road<br>
+                Santacruz West, Mumbai, India<br><br>
+                Inquiries: <a href="mailto:info@anshpartners.com" class="download-link">info@anshpartners.com</a>
+            </p>
+        </section>
+
     </div>
+
+    <footer>
+        <p>&copy; 2026 Ansh Partners. All rights reserved. | <a href="#">Client Portal</a></p>
+    </footer>
+
 </body>
 </html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FDRE Power Economics</title>
+    
+    <!-- Google Fonts: EB Garamond (Headings) & Jost (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Color Palette & Auto Dark Mode */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333; /* Charcoal */
+            --accent-color: #D97736; /* Warm Orange */
+            --meta-color: #666666;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --text-color: #f0f0f0;
+                --accent-color: #D97736; 
+                --meta-color: #aaaaaa;
+            }
+            
+            /* Softens the logo brightness in dark mode */
+            .logo-img {
+                filter: brightness(0.8) contrast(1.2);
+            }
+        }
+
+        /* Top Accent Highlight */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: var(--accent-color);
+            z-index: 1000;
+        }
+
+        /* Base Typography & Layout */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            margin: 0;
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .memo-container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'EB Garamond', serif;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-top: 0;
+        }
+
+        /* Header Styling - Flexbox for Top-Right Logo (Lines Removed) */
+        .memo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            gap: 30px;
+        }
+
+        .header-content {
+            flex: 1;
+        }
+
+        .logo-container {
+            flex-shrink: 0;
+            padding-top: 5px;
+        }
+
+        .logo-container a {
+            display: block;
+            text-decoration: none;
+            outline: none;
+        }
+
+        .logo-img {
+            height: 65px; 
+            width: auto;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+        
+        .logo-img:hover {
+            opacity: 0.8;
+        }
+
+        .memo-meta {
+            font-family: 'Jost', sans-serif;
+            font-weight: 500;
+            color: var(--meta-color);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .memo-title {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 0;
+        }
+
+        /* Body Text Styling */
+        p {
+            margin-bottom: 1.8rem;
+            text-align: justify;
+            font-size: 1.05rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer Styling (Lines Removed) */
+        .memo-footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            font-family: 'Jost', sans-serif;
+            font-size: 0.85rem;
+            color: var(--meta-color);
+            text-align: center;
+        }
+
+        /* Print Optimization for PDF generation */
+        @media print {
+            body {
+                background-color: white !important;
+                color: #000000 !important;
+                padding: 0;
+            }
+            
+            body::before {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                background-color: var(--accent-color) !important;
+            }
+
+            p {
+                text-align: left;
+            }
+
+            .logo-img {
+                filter: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="memo-container">
+        <header class="memo-header">
+            <div class="header-content">
+                <div class="memo-meta">Q1 F2627</div>
+                <h1 class="memo-title">FDRE Power Economics</h1>
+            </div>
+            <div class="logo-container">
+                <a href="javascript:history.back()" title="Go Back">
+                    <img src="./images/ansh_sq.png" alt="Ansh Partners Logo" class="logo-img">
+                </a>
+            </div>
+        </header>
+        
+        <main>
+            <p>Firm and dispatchable renewable energy bundles solar or wind power with energy storage to deliver a defined amount of clean electricity throughout the day and night. By turning variable renewables into a dispatchable product resembling conventional baseload power, this framework directly addresses grid intermittency. Under load-following structures, developers must match a specific demand curve, which often requires maintaining strict demand fulfillment ratios of at least 90 percent during peak hours. The buying entity selects the peak delivery window, and any monthly delivery shortfall beyond permitted deviations attracts a heavy commercial penalty, typically priced at 1.5 times the power purchase agreement tariff. While the choice of generation mix and energy storage sizing is left to the developer, load-following requirements demand high storage intensity to reshape power supply reliably across the entire day.</p>
+
+            <p>Constructing a sample one gigawatt firm and dispatchable plant entails a significantly higher capital intensity than a traditional standalone solar project. A standard one megawatt solar plant currently requires a turnkey capital expenditure of roughly ₹3.5 to ₹4.5 crore, meaning the base generation infrastructure for one gigawatt would normally require a ₹3,500 to ₹4,500 crore outlay. However, because the system must charge massive storage banks for non-solar hours, the actual generation capacity must be significantly oversized. For example, recent large-scale deployments have frequently paired over 1,500 megawatts of solar capacity with substantial battery energy storage systems. Despite sharp declines in battery prices, which have seen competitive bidding discover storage costs in the ₹2.1 to ₹2.8 per kilowatt-hour range, the massive battery capacity needed to meet peak fulfillment dictates an enormous premium. Given the required generation oversizing—often 1.5 to 2 times the contracted output—the total capital requirement for a one gigawatt project typically pushes upward of ₹8,000 to ₹10,000 crore.</p>
+
+            <p>Despite the heavy capital requirements, the tariff trajectory for these projects demonstrates strong commercial competitiveness. Load-following and round-the-clock tariffs have converged into a band typically ranging from ₹4.70 to ₹5.10 per kilowatt-hour. Notably, in August 2026, the Solar Energy Corporation of India concluded an auction for one gigawatt of firm and dispatchable round-the-clock power that cleared at a competitive tariff of ₹5.25 per unit. Tariffs vary based on the exact supply structure; while standard load-following clears near ₹5.00, peak-only tenders can command a higher premium between ₹6.27 and ₹6.74 per kilowatt-hour. Regardless of the specific structure, these projects offer a fixed, long-term tariff over a 25-year tenure, providing cost predictability that fuel-exposed coal generation cannot promise.</p>
+
+            <p>The Indian power sector is undergoing a definitive shift in its procurement strategy, moving away from simply acquiring the cheapest kilowatt-hour to prioritizing the cheapest reliable kilowatt-hour. Historically, the aggressive rollout of standalone solar capacity solved the immediate need for green generation, but it increasingly exposed the grid to severe integration challenges. The intermittent nature of pure solar generation—flooding the grid during midday when demand is manageable and vanishing completely as the evening peak sets in—has exacerbated the grid-straining duck curve. Consequently, the off-take for new, vanilla solar power purchase agreements has markedly slowed as grid operators are reluctant to sign long-term agreements for power they cannot control. This grid-level fatigue has catalyzed the aggressive push toward firm and dispatchable energy. By mandating integrated storage, the burden of firming the power is shifted from the grid operator directly to the developer. Rapidly falling battery costs are eroding the premium once associated with firm renewable power, allowing these projects to compete directly with new thermal generation on price. Building 300 gigawatts of non-fossil capacity is a major achievement, but being able to call on that capacity at 9 p.m. is the critical requirement moving forward, solidifying storage-backed generation as the indispensable standard for future capacity additions.</p>
+        </main>
+
+        <footer class="memo-footer">
+            &copy; 2026 Ansh Partners. All rights reserved.
+        </footer>
+    </div>
+</body>
+</html>
