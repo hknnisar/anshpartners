@@ -239,13 +239,35 @@
             color: var(--accent-color);
         }
 
-        @media (max-width: 600px) {
+<!--         @media (max-width: 600px) {
             h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
             nav { justify-content: center; }
             .sanskrit-tagline { font-size: 1.5rem; }
+        } -->
+		
+		@media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .sanskrit-tagline { font-size: 1.5rem; }
+            
+            /* Mobile Navigation Fix */
+            nav { 
+                flex-direction: column; /* Stacks the logo above the menu */
+                gap: 1rem;
+                padding: 1.5rem 5%;
+            }
+            .nav-links { 
+                display: flex; 
+                flex-wrap: wrap; 
+                justify-content: center; 
+                gap: 1rem; /* Adds even spacing between the links */
+            }
+            .nav-links a { 
+                margin-left: 0; /* Overrides the wide desktop margins */
+                font-size: 0.9rem; 
+            }
         }
-    </style>
+		    </style>
 </head>
 <body>
 
@@ -279,19 +301,9 @@
         <section id="partners">
             <h2>The Team</h2>
 
-            <div class="partner">
-                <h3>Heli Sangoi</h3><span class="role">Partner</span>
-                <p>Heli serves as the structural and strategic compass for the firm. As the senior-most member of the partnership, she brings an unparalleled depth of experience from the broader financial sector, anchored by an extensive, high-level network of technical and regulatory relationships. She provides rigorous governance, technical counsel, and overarching direction to the firm’s capital deployment. Her deep understanding of complex financial architecture ensures that the partnership's growth is consistently guided by prudence, precision, and enduring stability.</p>
-            </div>
-            
-            <div class="partner">
-                <h3>Kiran Nisar</h3><span class="role">Partner</span>
-                <p>Kiran anchors the firm’s private investments and strategic partnerships. He leads corporate structuring, the evaluation of complex joint ventures, and the operational oversight of foundational assets. His deep experience in long-term capital deployment and organizational framework design provides a robust, stable anchor to the firm's broader portfolio.</p>
-            </div>
-
-            <div class="partner">
-                <h3>Harsh Kiran Nisar</h3><span class="role">Partner</span>
-                <p>Harsh serves as the research and technical pillar of the partnership, directing the firm’s quantitative strategies and algorithmic architecture. Following several years of foundational operational experience across North American markets, he brings a rigorous, systems-engineering discipline to the firm's capital allocation. His expertise lies in constructing automated trading frameworks, macroeconomic cycle analysis, and applying machine learning models to finance. By treating asset allocation as an empirical science, he ensures that the firm’s quantitative modeling and dynamic asset strategies are consistently driven by precision and profound technical research.</p>
+			<div class="partner">
+                <h3>Ansh Nisar</h3><span class="role">Partner</span>
+                <p>Ansh brings a forward-looking, dynamic perspective to the firm’s capital allocation frameworks. Representing the second generation of the firm's market participation, he provides a vital bridge between enduring investment principles and emerging macroeconomic trends. His technical acumen includes a sophisticated fluency in derivative structuring and synthetic instruments, allowing the partnership to manage risk and navigate complex market mechanics with exactness. Currently based in Barcelona to further his advanced academic pursuits, Ansh contributes a strategic, global vantage point to the office, ensuring the firm’s overarching philosophy remains adaptable and positioned for long-term continuity.</p>
             </div>
 
             <div class="partner">
@@ -300,9 +312,15 @@
             </div>
 
             <div class="partner">
-                <h3>Ansh Nisar</h3><span class="role">Partner</span>
-                <p>Ansh brings a forward-looking, dynamic perspective to the firm’s capital allocation frameworks. Representing the second generation of the firm's market participation, he provides a vital bridge between enduring investment principles and emerging macroeconomic trends. His technical acumen includes a sophisticated fluency in derivative structuring and synthetic instruments, allowing the partnership to manage risk and navigate complex market mechanics with exactness. Currently based in Barcelona to further his advanced academic pursuits, Ansh contributes a strategic, global vantage point to the office, ensuring the firm’s overarching philosophy remains adaptable and positioned for long-term continuity.</p>
+                <h3>Heli Sangoi</h3><span class="role">Partner</span>
+                <p>Heli serves as the structural and strategic compass for the firm. As the senior-most member of the partnership, she brings an unparalleled depth of experience from the broader financial sector, anchored by an extensive, high-level network of technical and regulatory relationships. She provides rigorous governance, technical counsel, and overarching direction to the firm’s capital deployment. Her deep understanding of complex financial architecture ensures that the partnership's growth is consistently guided by prudence, precision, and enduring stability.</p>
             </div>
+
+            <div class="partner">
+                <h3>Harsh Kiran Nisar</h3><span class="role">Partner</span>
+                <p>Harsh serves as the research and technical pillar of the partnership, directing the firm’s quantitative strategies and algorithmic architecture. Following several years of foundational operational experience across North American markets, he brings a rigorous, systems-engineering discipline to the firm's capital allocation. His expertise lies in constructing automated trading frameworks, macroeconomic cycle analysis, and applying machine learning models to finance. By treating asset allocation as an empirical science, he ensures that the firm’s quantitative modeling and dynamic asset strategies are consistently driven by precision and profound technical research.</p>
+            </div>
+
 
             <div class="partner">
                 <h3>Ayush Dedhia</h3><span class="role">Associate</span>
@@ -324,7 +342,7 @@
                 Ansh Partners<br>
                 22-5 Hi Life, PM Road<br>
                 Santacruz West, Mumbai, India<br><br>
-                Inquiries: <a href="mailto:info@anshpartners.com" class="download-link">info@anshpartners.com</a>
+                Inquiries: <a href="mailto:contact@anshpartners.com" class="download-link">contact@anshpartners.com</a>
             </p>
         </section>
 
